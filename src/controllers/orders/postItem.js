@@ -1,6 +1,6 @@
 const orders = require('../../models/orders')
 
-//TODO: Generamos nueva orden y guardamos en base de datos
+// Generamos nueva orden y guardamos en base de datos
 
 const postItem = async (req, res) => {
     try {

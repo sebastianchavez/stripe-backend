@@ -9,11 +9,11 @@ const { dbConnect } = require('./handler/dbHandler')
 
 const PORT = 3000 || process.env.PORT;
 
-//TODO: Importamos rutas
+// Importamos rutas
 
 app.use(require('./routers'))
 
-//TODO: Conectamos con base de datos
+// Conectamos con base de datos
 
 dbConnect()
 

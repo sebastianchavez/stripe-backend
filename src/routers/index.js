@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router()
 
-//TODO: Ruta de orders
+// Ruta de orders
 
 router.use('/orders', require('./orders'))
 
