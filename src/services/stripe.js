@@ -7,16 +7,13 @@ const stripe = Stripe(process.env.STRIPE_SK)
 
 const generatePaymentIntent = async ({ amount, user, payment_method }) => {
     const resPaymentIntent = await stripe.paymentIntents.create({
-        amount: parseFloat(amount) * 100,
+        amount: parseFloat(amount), // * 100 DLL
         currency: process.env.STRIPE_CURRENCY,
         payment_method_types: ['card'],
         payment_method,
         description: `Pago de prueba para CIISA`
     });
-
-
     return resPaymentIntent
-
 }
 
 /**
@@ -28,9 +25,6 @@ const confirmPaymentIntent = async (id, token) => {
         id,
         { payment_method: token }
     );
-
-    console.log(paymentIntent)
-
     return paymentIntent
 }
 
@@ -39,17 +33,15 @@ const confirmPaymentIntent = async (id, token) => {
  */
 
 const generatePaymentMethod = async (token) => {
-
     const paymentMethod = await stripe.paymentMethods.create({
         type: 'card',
         card: { token }
     });
-
     return paymentMethod
 }
 
 /**
- * Consultar detalle de ordne
+ * Consultar detalle de orden
  */
 
 const getPaymentDetail = async (id) => {

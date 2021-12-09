@@ -13,7 +13,7 @@ const confirmPay = async (req, res) => {
         const resOrder = await orders.findOne({ localizator: id })
 
         // Confirmamos pago en Stripe
-        const respConfirm = await confirmPaymentIntent(resOrder.stripeId, token)
+        const respConfirm = await confirmPaymentIntent(resOrder.stripeId, token.id)
 
         console.log('respConfirm:', respConfirm)
 
